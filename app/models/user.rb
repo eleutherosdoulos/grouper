@@ -15,4 +15,20 @@ class User < ActiveRecord::Base
       super :already_authenticated 
     end
   end
+
+=begin
+  def populate_type
+    @user = current_user
+    if approved?
+      if @user.user_type = "administrator"
+         a = Administrator.new
+         a.first_name = @user.first_name
+         a.last_name = @user.last_name
+      elsif
+      else
+      end
+    end
+=end
+
 end
+
