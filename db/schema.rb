@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122213540) do
+ActiveRecord::Schema.define(version: 20151125123455) do
 
   create_table "administrators", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20151122213540) do
     t.string   "first_name",             limit: 255
     t.string   "last_name",              limit: 255
     t.boolean  "approved",                           default: false, null: false
+    t.string   "teacher_subject_area",   limit: 255
   end
 
   add_index "users", ["approved"], name: "index_users_on_approved", using: :btree

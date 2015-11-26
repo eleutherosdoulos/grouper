@@ -1,4 +1,30 @@
 <p id="notice"><%= notice %></p>
+<h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+<h2> Administrator </h2>
+
+<h3>Unapproved Users:</h3>
+
+<table>
+  <th>First</th>
+  <th>Last</th>
+  <th>Role</th>
+  <th>Subject</th>
+  <th>Approve</th>
+  <th>Delete</th>
+
+  <%= @unapproved_users.each do |f|%>
+    <tr>
+      <td><%= f.first_name %></td>
+      <td><%= f.last_name %></td>
+      <td><%= f.user_type %></td>
+      <td><%= if f.teacher_subject_area != nil
+                f.teacher_subject_area
+              end%></td>
+
+      <td> <%=link_to "Delete", administrator_path(f.id), :method => :delete %> </td>
+    </tr>
+  <% end %>
+</table>
 
 <%= link_to 'Edit', edit_administrator_path(@administrator) %> |
 <%= link_to 'Back', administrators_path %>

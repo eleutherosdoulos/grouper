@@ -10,6 +10,7 @@ class AdministratorsController < ApplicationController
   # GET /administrators/1
   # GET /administrators/1.json
   def show
+    @unapproved_users = User.where(:approved => false)
   end
 
   # GET /administrators/new
@@ -54,15 +55,16 @@ class AdministratorsController < ApplicationController
   # DELETE /administrators/1
   # DELETE /administrators/1.json
   def destroy
-    @administrator.destroy
+    @user = User.find(params[:id])
+    @user.destroy
     respond_to do |format|
-      format.html { redirect_to administrators_url, notice: 'Administrator was successfully destroyed.' }
+      format.html { redirect_to administrator_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+   # Use callbacks to share common setup or constraints between actions.
     def set_administrator
       @administrator = Administrator.find(params[:id])
     end

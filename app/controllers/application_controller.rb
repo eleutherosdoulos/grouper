@@ -16,11 +16,11 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for (resource)
     @user = current_user
     if @user.user_type = "administrator"
-      administrator_path
+      administrator_path(resource)
     elsif @user.user_type = "teacher"
-      teacher_path
+      teacher_path(resource)
     else
-      student_path 
+      student_path(resource)
     end
   end
 
