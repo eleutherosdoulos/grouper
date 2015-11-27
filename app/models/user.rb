@@ -17,17 +17,22 @@ class User < ActiveRecord::Base
   end
 
 =begin
-  def populate_type
-    @user = current_user
-    if approved?
-      if @user.user_type = "administrator"
+  ater_update do |user|
+     if user.user_type = "administrator"
          a = Administrator.new
-         a.first_name = @user.first_name
-         a.last_name = @user.last_name
-      elsif
+         a.first_name = user.first_name
+         a.last_name = user.last_name
+      elsif user.user_type = "teacher"
+         a = Teacher.new
+         a.first_name = user.first_name
+         a.last_name = user.last_name
+         a.subject_area = user.teacher_subject_area
       else
+         a = Student.new
+         a.first_name = user.first_name
+         a.last_name = user.last_name 
       end
-    end
+ end
 =end
 
 end

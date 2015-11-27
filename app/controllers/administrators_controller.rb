@@ -40,7 +40,9 @@ class AdministratorsController < ApplicationController
 
   # PATCH/PUT /administrators/1
   # PATCH/PUT /administrators/1.json
-  def update
+  def update 
+    @user = User.find(params[:id])
+    @user.update_attributes(:approved => true)
     respond_to do |format|
       if @administrator.update(administrator_params)
         format.html { redirect_to @administrator, notice: 'Administrator was successfully updated.' }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125123455) do
+ActiveRecord::Schema.define(version: 20151127203055) do
 
   create_table "administrators", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,13 +19,18 @@ ActiveRecord::Schema.define(version: 20151125123455) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "first_name", limit: 255
+    t.string   "last_name",  limit: 255
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "first_name",   limit: 255
+    t.string   "last_name",    limit: 255
+    t.string   "subject_area", limit: 255
   end
 
   create_table "users", force: :cascade do |t|

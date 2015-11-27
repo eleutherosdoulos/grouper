@@ -20,11 +20,8 @@
       <td><%= if f.teacher_subject_area != nil
                 f.teacher_subject_area
               end%></td>
-
-      <td> <%=link_to "Delete", administrator_path(f.id), :method => :delete %> </td>
+      <td> <%= button_to "Approve", administrator_path(f.id), :method => :patch %></td>
+      <td> <%=button_to "Delete", administrator_path(f.id), :method => :delete %> </td>
     </tr>
   <% end %>
 </table>
-
-<%= link_to 'Edit', edit_administrator_path(@administrator) %> |
-<%= link_to 'Back', administrators_path %>
